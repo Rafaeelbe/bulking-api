@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: bulking-db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - bulking_data:/var/lib/postgresql/data
+
+volumes:
+  bulking_data:
